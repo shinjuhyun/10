@@ -3,19 +3,15 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int main(void) {
-	int i;
-	int grade[5];
-	int accum = 0;
+	int i = 100;
+	int *p = &i;
+	int **q = &p;
 	
-	for(i=0;i<5;i++)
-	{
-		printf("grade[%i] = ",i);
-		scanf("%d",&grade[i]);
-	}
-	for(i=0;i<5;i++)
-	{
-		printf("%i : %i\n",i,*(grade+i));
-		accum += *(grade+i);
-	}
-	printf("average = %i\n", accum/5);
+	*p = 200;
+	printf("i = %d, *p = %d, **q = %d\n",i,*p,**q);
+	
+	**q = 300;
+	printf("i = %d, *p = %d, **q = %d\n",i,*p,**q);
+	
+	return 0;
 }
